@@ -20,75 +20,7 @@ uci -q batch <<-EOF >/dev/null
     # for openwrt-22.03
     set smartdns.@smartdns[0].port='6053'
     # for openwrt-22.03
-    #set smartdns.@smartdns[0].auto_set_dnsmasq='1'
-
-    set smartdns.@smartdns[0].speed_check_mode='tcp:443'
-    set smartdns.@smartdns[0].tcp_server='0'
-    set smartdns.@smartdns[0].dualstack_ip_selection='0'
-    set smartdns.@smartdns[0].prefetch_domain='1'
-    set smartdns.@smartdns[0].serve_expired='1'
-    set smartdns.@smartdns[0].cache_size='12288'
-    set smartdns.@smartdns[0].cache_persist='0'
-    #set smartdns.@smartdns[0].resolve_local_hostnames='1'
-    #set smartdns.@smartdns[0].force_https_soa='1'
-    set smartdns.@smartdns[0].rr_ttl_min='600'
-
-    set smartdns.@smartdns[0].seconddns_enabled='1'
-    #set smartdns.@smartdns[0].seconddns_port='6553'
-    set smartdns.@smartdns[0].seconddns_tcp_server='0'
-    set smartdns.@smartdns[0].seconddns_server_group='pw'
-    set smartdns.@smartdns[0].seconddns_no_speed_check='1'
-    #set smartdns.@smartdns[0].seconddns_no_rule_nameserver='1'
-    #set smartdns.@smartdns[0].seconddns_no_dualstack_selection='1'
-    #set smartdns.@smartdns[0].seconddns_no_cache='1'
-    set smartdns.@smartdns[0].seconddns_force_aaaa_soa='1'
-    #set smartdns.@smartdns[0].seconddns_force_https_soa='1'
-
-    set smartdns.@smartdns[0].log_level='debug'
-    set smartdns.@smartdns[0].log_size='128k'
-    set smartdns.@smartdns[0].log_num='2'
-    set smartdns.@smartdns[0].enable_audit_log='1'
-    set smartdns.@smartdns[0].audit_log_size='128k'
-    set smartdns.@smartdns[0].audit_log_num='2'
-
-    add smartdns server # =cfg02769c
-    set smartdns.@server[0].name='Aliyun'
-    set smartdns.@server[0].server_group='cn'
-    set smartdns.@server[0].ip='223.5.5.5'
-
-    add smartdns server # =cfg03769c
-    set smartdns.@server[1].name='DNSPod'
-    set smartdns.@server[1].server_group='cn'
-    set smartdns.@server[1].ip='119.29.29.29'
-
-    add smartdns server # =cfg04769c
-    set smartdns.@server[2].name='Baidu'
-    set smartdns.@server[2].server_group='cn'
-    set smartdns.@server[2].ip='180.76.76.76'
-
-    add smartdns server # =cfg05769c
-    set smartdns.@server[3].name='Cloudflare'
-    set smartdns.@server[3].exclude_default_group='1'
-    set smartdns.@server[3].server_group='pw'
-    set smartdns.@server[3].type='tls'
-    set smartdns.@server[3].ip='1.1.1.1'
-
-    add smartdns server # =cfg06769c
-    set smartdns.@server[4].name='Google'
-    set smartdns.@server[4].exclude_default_group='1'
-    set smartdns.@server[4].server_group='pw'
-    set smartdns.@server[4].type='tls'
-    set smartdns.@server[4].ip='8.8.8.8'
-
-    add smartdns server # =cfg07769c
-    set smartdns.@server[5].name='OpenDNS'
-    set smartdns.@server[5].exclude_default_group='1'
-    set smartdns.@server[5].server_group='pw'
-    set smartdns.@server[5].type='tls'
-    set smartdns.@server[5].ip='208.67.222.222'
-
-    commit smartdns
-
+    
 # /etc/config/dhcp
     #add_list dhcp.@dnsmasq[0].server='127.0.0.1#6053'
     #set dhcp.@dnsmasq[0].noresolv='1'
@@ -116,10 +48,6 @@ uci -q batch <<-EOF >/dev/null
     set adblock.global.adb_triggerdelay='120'
     commit adblock
 
-# /etc/config/vlmcsd
-    #set vlmcsd.config.enabled='1'
-    #set vlmcsd.config.autoactivate='1'
-    #commit vlmcsd
 
 # /etc/config/sqm
     #set sqm.eth1.enabled='1'
